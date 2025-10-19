@@ -1,3 +1,60 @@
+#include <stdio.h>
+#include <string.h>
+
+// Definição da struct
+struct territorio
+{
+    char nome[30];
+    char cor[10];
+    int tropas;
+};
+
+// Função para preencher os territórios
+void inicializarTerritorios(struct territorio t[5]) {
+    int i;
+
+    printf("============================================================================\n");
+    printf("                        Projeto War Estruturado                             \n");
+    printf("============================================================================\n");
+    printf("Vamos cadastrar os 5 Territórios iniciais:\n");
+
+
+    for (i = 0; i < 5; i++) {
+        printf("\n=== Território %d ===\n", i + 1);
+
+        printf("Nome: ");
+        fgets(t[i].nome, 30, stdin);
+        t[i].nome[strcspn(t[i].nome, "\n")] = '\0'; // remove o '\n'
+
+        printf("Cor: ");
+        fgets(t[i].cor, 10, stdin);
+        t[i].cor[strcspn(t[i].cor, "\n")] = '\0'; // remove o '\n'
+
+        printf("Tropas: ");
+        scanf("%d", &t[i].tropas);
+
+        getchar(); // limpa o '\n' deixado pelo scanf
+    }
+}
+
+int main(){
+    struct territorio t[5]; // vetor fixo com 5 elementos
+
+    // Chama a função que preenche os dados
+    inicializarTerritorios(t);
+
+    // Exibe os territórios cadastrados (teste de saída)
+    printf("\n--- Territórios cadastrados ---\n");
+    for (int i = 0; i < 5; i++) {
+        printf("\nTerritório %d:\n", i + 1);
+        printf("Nome: %s\n", t[i].nome);
+        printf("Cor: %s\n", t[i].cor);
+        printf("Tropas: %d\n", t[i].tropas);
+    }
+
+    return 0;
+}
+
 // ============================================================================
 //         PROJETO WAR ESTRUTURADO - DESAFIO DE CÓDIGO
 // ============================================================================
@@ -22,6 +79,11 @@
 // --- Estrutura de Dados ---
 // Define a estrutura para um território, contendo seu nome, a cor do exército que o domina e o número de tropas.
 
+//{
+    /* data */
+//};
+
+
 // --- Protótipos das Funções ---
 // Declarações antecipadas de todas as funções que serão usadas no programa, organizadas por categoria.
 // Funções de setup e gerenciamento de memória:
@@ -31,7 +93,7 @@
 
 // --- Função Principal (main) ---
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
-int main() {
+//int main()
     // 1. Configuração Inicial (Setup):
     // - Define o locale para português.
     // - Inicializa a semente para geração de números aleatórios com base no tempo atual.
@@ -51,8 +113,8 @@ int main() {
     // 3. Limpeza:
     // - Ao final do jogo, libera a memória alocada para o mapa para evitar vazamentos de memória.
 
-    return 0;
-}
+//    return 0;
+//}
 
 // --- Implementação das Funções ---
 
